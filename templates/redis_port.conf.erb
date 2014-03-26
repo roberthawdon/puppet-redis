@@ -133,6 +133,13 @@ dir /var/lib/redis/<%= @redis_port %>
 #
 slave-serve-stale-data yes
 
+<% if @slaveof %>
+slaveof <%= @slaveof %>
+<% end %>
+<% if @masterauth %>
+masterauth <%= @masterauth %>
+<% end %>
+
 ################################## SECURITY ###################################
 
 # Require clients to issue AUTH <PASSWORD> before processing any other
